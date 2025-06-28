@@ -152,8 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownTime: 3
-  bugSpawnDelay: 1
-  maxWaitTime: 5
+  flySpawnInterval: 2
   playerController: {fileID: 544259196}
   aiController: {fileID: 1198164809}
   bugSpawner: {fileID: 908432149}
@@ -545,10 +544,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea94b686e031ede468e8cc28fdd44926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyPrefab: {fileID: 0}
-  beePrefab: {fileID: 0}
+  flyPrefab: {fileID: 8718003343999473743, guid: 9011d301db1ef614182bdb2b5a8e3cd2, type: 3}
+  beePrefab: {fileID: 3121723380179802311, guid: 92d2455a341936146a8d3f729ff9d8ea, type: 3}
   spawnRadius: 3
   flySpawnChance: 0.7
+  flySpeed: 90
+  targetZone: {fileID: 1368239257}
+  autoSpawnTest: 0
+  autoSpawnInterval: 3
+  spawnPoints: []
+  useFixedSpawnPoints: 0
   spawnCenter: {fileID: 0}
 --- !u!4 &908432150
 Transform:
@@ -737,9 +742,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42823c7a841e5174eb561d29efb6f75d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minReactionTime: 0.3
-  maxReactionTime: 1.5
+  fixedReactionTime: 2
   gameManager: {fileID: 480590364}
+  targetZone: {fileID: 1368239257}
 --- !u!4 &1198164810
 Transform:
   m_ObjectHideFlags: 0
@@ -784,9 +789,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7d6ac2bf4722647b82edf46647b505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
+  radius: 40
   zoneColor: {r: 1, g: 0, b: 0, a: 1}
   showGizmo: 1
+  showInGame: 1
+  enableMovement: 1
+  movementRadius: 20
+  movementSpeed: 60
+  lineWidth: 1
+  circleSegments: 64
 --- !u!4 &1368239258
 Transform:
   m_ObjectHideFlags: 0
@@ -796,7 +807,76 @@ Transform:
   m_GameObject: {fileID: 1368239256}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2945395, y: 9.293637, z: -0.03584729}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1629590840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1629590843}
+  - component: {fileID: 1629590842}
+  - component: {fileID: 1629590841}
+  m_Layer: 0
+  m_Name: TestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1629590841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629590840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c93baafc9a1e241b2df042fc898f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showTestBug: 1
+  targetZone: {fileID: 1368239257}
+  testBugPrefab: {fileID: 4165387341668496832, guid: 9d988003057fdd142a6b00693eb500e1, type: 3}
+  bugSize: 0.5
+  flyColor: {r: 0, g: 1, b: 0, a: 1}
+  beeColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+--- !u!114 &1629590842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629590840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382644c648c01714b8315796fed06966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableTestMode: 1
+  targetZone: {fileID: 1368239257}
+  gameCamera: {fileID: 519420031}
+  uiCanvas: {fileID: 0}
+  feedbackText: {fileID: 0}
+  instructionText: {fileID: 0}
+--- !u!4 &1629590843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629590840}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9205565, y: -5.839156, z: -2.006787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -815,3 +895,4 @@ SceneRoots:
   - {fileID: 1368239258}
   - {fileID: 716927148}
   - {fileID: 760824522}
+  - {fileID: 1629590843}
