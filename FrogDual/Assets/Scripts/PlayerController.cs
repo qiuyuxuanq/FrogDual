@@ -24,49 +24,67 @@ public class PlayerController : MonoBehaviour
             HandleMouseClick();
         }
     }
-    
+
     void HandleMouseClick()
     {
         hasClicked = true;
-        
-        // 触发青蛙射击动画
+
         if (playerFrog != null)
         {
             playerFrog.PlayShootAnimation();
         }
-        
+
         Vector3 mouseWorldPos = gameCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0f;
-        
+
         Debug.Log($"Player clicked at: {mouseWorldPos}");
-        
+
         bool hitFly = false;
-        bool inTargetZone = targetZone.IsPositionInZone(mouseWorldPos);
-        
+        bool inTargetZone = false;
+
+        // 首先检查是否点击了虫子
         Bug clickedBug = GetBugAtPosition(mouseWorldPos);
+
         if (clickedBug != null)
         {
             hitFly = clickedBug.bugType == BugType.Fly;
-            Debug.Log($"Clicked on {clickedBug.bugType} - inTargetZone: {inTargetZone}");
+
+            // ✅ 关键修复：检查虫子位置是否在TargetZone中，而不是鼠标位置
+            inTargetZone = targetZone.IsPositionInZone(clickedBug.transform.position);
+
+            Debug.Log($"Clicked on {clickedBug.bugType} at {clickedBug.transform.position}");
+            Debug.Log($"Bug in target zone: {inTargetZone}");
         }
         else
         {
+            // 如果没点击虫子，检查空白点击是否在目标区域
+            inTargetZone = targetZone.IsPositionInZone(mouseWorldPos);
             Debug.Log($"Clicked on empty space - inTargetZone: {inTargetZone}");
         }
-        
+
         gameManager.OnPlayerClick(hitFly, inTargetZone);
     }
-    
+
+
     Bug GetBugAtPosition(Vector3 worldPosition)
     {
-        Collider2D hit = Physics2D.OverlapPoint(worldPosition);
-        if (hit != null)
+        // 获取所有重叠的碰撞器
+        Collider2D[] hits = Physics2D.OverlapPointAll(worldPosition);
+
+        foreach (Collider2D hit in hits)
         {
-            return hit.GetComponent<Bug>();
+            Bug bug = hit.GetComponent<Bug>();
+            if (bug != null)
+            {
+                Debug.Log($"🔍 检测到虫子: {bug.bugType} 在位置 {hit.transform.position}");
+                return bug; // 返回第一个找到的Bug
+            }
         }
+
+        Debug.Log($"🔍 位置 {worldPosition} 没有检测到虫子");
         return null;
     }
-    
+
     public void EnableInput()
     {
         inputEnabled = true;
