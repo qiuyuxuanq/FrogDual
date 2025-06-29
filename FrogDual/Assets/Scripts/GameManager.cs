@@ -23,6 +23,20 @@ public class GameManager : MonoBehaviour
     public BugSpawner bugSpawner;
     public TargetZone targetZone;
     
+    [Header("UI References")]
+    public Canvas menuCanvas;
+    public Canvas gameCanvas;
+    public Canvas countDownCanvas;
+    public Canvas tutorialCanvas;
+    public Canvas winCanvas;
+    public Canvas loseCanvas;
+    public Button startButton;
+    public Button exitButton;
+    
+    [Header("Win/Lose UI")]
+    public Image winImage;
+    public Image loseImage;
+    
     [Header("倒计时显示 (使用Canvas Image)")]
     public Image countdownImage1;    // 数字1的Image组件
     public Image countdownImage2;    // 数字2的Image组件  
@@ -33,9 +47,16 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // 初始化UI状态
+        InitializeUI();
+        
         // 确保所有倒计时Image初始状态为隐藏
         HideAllCountdownImages();
-        StartGame();
+        
+        // 设置按钮事件
+        SetupButtonEvents();
+        
+        // 等待玩家点击开始，不自动开始游戏
     }
 
     public void StartGame()
@@ -120,9 +141,9 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                // 点击了空白区域，不算失败，继续游戏
-                Debug.Log("🎯 点击了目标区域内的空白位置，继续游戏");
-                playerController.EnableInput(); // 重新启用输入
+                // 点击了空白区域，不算失败，但不允许再次点击
+                Debug.Log("🎯 点击了目标区域内的空白位置，继续游戏（但不能再次点击）");
+                // 不重新启用输入，保持玩家只能点击一次的限制
             }
         }
     }
@@ -176,7 +197,9 @@ public class GameManager : MonoBehaviour
         // 立即销毁所有虫子
         DestroyAllBugs();
 
-        // 游戏结束，不再重启
+        // 显示胜利UI
+        ShowWinUI();
+        
         Debug.Log("🏆 游戏胜利结束！");
     }
 
@@ -201,7 +224,9 @@ public class GameManager : MonoBehaviour
         // 立即销毁所有虫子
         DestroyAllBugs();
 
-        // 游戏结束，不再重启
+        // 显示失败UI
+        ShowLoseUI();
+        
         Debug.Log("😵 游戏失败结束！");
     }
 
@@ -338,5 +363,191 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("🧪 手动测试：隐藏所有倒计时");
         HideAllCountdownImages();
+    }
+    
+    /// <summary>
+    /// 初始化UI状态
+    /// </summary>
+    void InitializeUI()
+    {
+        // 显示菜单Canvas，隐藏游戏Canvas
+        if (menuCanvas != null) menuCanvas.gameObject.SetActive(true);
+        if (gameCanvas != null) gameCanvas.gameObject.SetActive(false);
+        if (countDownCanvas != null) countDownCanvas.gameObject.SetActive(false);
+        if (tutorialCanvas != null) tutorialCanvas.gameObject.SetActive(false);
+        if (winCanvas != null) winCanvas.gameObject.SetActive(false);
+        if (loseCanvas != null) loseCanvas.gameObject.SetActive(false);
+        
+        Debug.Log("📱 UI初始化完成：显示MenuCanvas，隐藏其他所有Canvas");
+    }
+    
+    /// <summary>
+    /// 设置按钮事件
+    /// </summary>
+    void SetupButtonEvents()
+    {
+        if (startButton != null)
+        {
+            startButton.onClick.RemoveAllListeners();
+            startButton.onClick.AddListener(OnStartButtonClicked);
+            Debug.Log("✅ Start按钮事件已设置");
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ Start Button引用未设置！");
+        }
+        
+        if (exitButton != null)
+        {
+            exitButton.onClick.RemoveAllListeners();
+            exitButton.onClick.AddListener(OnExitButtonClicked);
+            Debug.Log("✅ Exit按钮事件已设置");
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ Exit Button引用未设置！");
+        }
+    }
+    
+    /// <summary>
+    /// 开始按钮点击事件
+    /// </summary>
+    public void OnStartButtonClicked()
+    {
+        Debug.Log("🎮 玩家点击了开始按钮");
+        
+        // 切换BGM：停止菜单BGM，播放游戏BGM
+        if (BGMManager.Instance != null)
+        {
+            BGMManager.Instance.SwitchToGameBGM();
+        }
+        
+        // 隐藏菜单Canvas，同时显示教程Canvas和游戏Canvas
+        if (menuCanvas != null) menuCanvas.gameObject.SetActive(false);
+        if (tutorialCanvas != null) tutorialCanvas.gameObject.SetActive(true);
+        if (gameCanvas != null) gameCanvas.gameObject.SetActive(true);
+        if (countDownCanvas != null) countDownCanvas.gameObject.SetActive(true);
+        
+        Debug.Log("📱 切换UI：隐藏MenuCanvas，同时显示TutorialCanvas、GameCanvas和CountDownCanvas");
+        
+        // 开始教程序列
+        StartCoroutine(ShowTutorialSequence());
+    }
+    
+    /// <summary>
+    /// 退出按钮点击事件
+    /// </summary>
+    public void OnExitButtonClicked()
+    {
+        Debug.Log("🚪 玩家点击了退出按钮");
+        
+        // 在编辑器中停止播放
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            // 在构建的游戏中退出应用程序
+            Application.Quit();
+        #endif
+    }
+    
+    /// <summary>
+    /// 延迟返回菜单
+    /// </summary>
+    IEnumerator ReturnToMenuAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ReturnToMenu();
+    }
+    
+    /// <summary>
+    /// 返回主菜单
+    /// </summary>
+    public void ReturnToMenu()
+    {
+        Debug.Log("🔄 返回主菜单");
+        
+        // 重置游戏状态
+        currentState = GameState.Waiting;
+        
+        // 停止所有游戏活动
+        if (bugSpawner != null) bugSpawner.StopGameSpawning();
+        if (aiController != null) aiController.StopReaction();
+        if (playerController != null) playerController.DisableInput();
+        
+        // 清理场景
+        DestroyAllBugs();
+        HideAllCountdownImages();
+        
+        // 切换BGM：播放菜单BGM
+        if (BGMManager.Instance != null)
+        {
+            BGMManager.Instance.SwitchToMenuBGM();
+        }
+        
+        // 切换UI
+        if (menuCanvas != null) menuCanvas.gameObject.SetActive(true);
+        if (gameCanvas != null) gameCanvas.gameObject.SetActive(false);
+        if (countDownCanvas != null) countDownCanvas.gameObject.SetActive(false);
+        if (tutorialCanvas != null) tutorialCanvas.gameObject.SetActive(false);
+        if (winCanvas != null) winCanvas.gameObject.SetActive(false);
+        if (loseCanvas != null) loseCanvas.gameObject.SetActive(false);
+        
+        Debug.Log("📱 已返回主菜单");
+    }
+    
+    /// <summary>
+    /// 显示教程序列：显示TutorialCanvas 2秒后自动隐藏并开始游戏
+    /// </summary>
+    IEnumerator ShowTutorialSequence()
+    {
+        Debug.Log("📚 显示教程Canvas，2秒后自动隐藏");
+        
+        // 等待2秒
+        yield return new WaitForSeconds(2f);
+        
+        Debug.Log("📚 教程时间结束，隐藏TutorialCanvas");
+        
+        // 只隐藏教程Canvas，游戏Canvas保持显示
+        if (tutorialCanvas != null) tutorialCanvas.gameObject.SetActive(false);
+        
+        Debug.Log("📱 教程结束：隐藏TutorialCanvas，GameCanvas和CountDownCanvas保持显示");
+        Debug.Log("🎮 教程结束，开始正式游戏");
+        
+        // 开始游戏
+        StartGame();
+    }
+    
+    /// <summary>
+    /// 显示胜利UI，3秒后自动返回菜单
+    /// </summary>
+    void ShowWinUI()
+    {
+        Debug.Log("🎉 显示胜利UI");
+        
+        // 保持GameCanvas显示，只隐藏倒计时Canvas，显示胜利Canvas
+        if (countDownCanvas != null) countDownCanvas.gameObject.SetActive(false);
+        if (winCanvas != null) winCanvas.gameObject.SetActive(true);
+        
+        Debug.Log("📱 胜利UI显示：GameCanvas保持显示，WinCanvas作为覆盖层");
+        
+        // 3秒后返回菜单
+        StartCoroutine(ReturnToMenuAfterDelay(3f));
+    }
+    
+    /// <summary>
+    /// 显示失败UI，3秒后自动返回菜单
+    /// </summary>
+    void ShowLoseUI()
+    {
+        Debug.Log("💀 显示失败UI");
+        
+        // 保持GameCanvas显示，只隐藏倒计时Canvas，显示失败Canvas
+        if (countDownCanvas != null) countDownCanvas.gameObject.SetActive(false);
+        if (loseCanvas != null) loseCanvas.gameObject.SetActive(true);
+        
+        Debug.Log("📱 失败UI显示：GameCanvas保持显示，LoseCanvas作为覆盖层");
+        
+        // 3秒后返回菜单
+        StartCoroutine(ReturnToMenuAfterDelay(3f));
     }
 }

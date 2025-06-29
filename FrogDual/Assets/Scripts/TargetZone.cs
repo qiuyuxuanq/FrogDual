@@ -70,6 +70,7 @@ public class TargetZone : MonoBehaviour
         {
             ForceSyncAllComponents();
         }
+#if UNITY_EDITOR
         else if (Application.isEditor)
         {
             UnityEditor.EditorApplication.delayCall += () => {
@@ -81,6 +82,7 @@ public class TargetZone : MonoBehaviour
                 }
             };
         }
+#endif
     }
 
     #region 🎯 超精确判定系统

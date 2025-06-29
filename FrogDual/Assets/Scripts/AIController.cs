@@ -463,6 +463,7 @@ public class AIController : MonoBehaviour
         if (!Application.isPlaying) return;
 
         // 显示当前状态
+#if UNITY_EDITOR
         if (UnityEditor.Selection.activeGameObject == gameObject)
         {
             UnityEditor.Handles.Label(transform.position + Vector3.up * 2f,
@@ -471,6 +472,7 @@ public class AIController : MonoBehaviour
                 $"监控中: {isMonitoring}\n" +
                 $"已反应: {hasReacted}");
         }
+#endif
     }
 
     int GetCurrentSpriteArrayLength()

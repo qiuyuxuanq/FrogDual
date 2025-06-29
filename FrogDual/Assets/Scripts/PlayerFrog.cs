@@ -54,18 +54,6 @@ public class PlayerFrog : MonoBehaviour
 
     void Update()
     {
-        // 检测鼠标左键点击
-        if (Input.GetMouseButtonDown(0))
-        {
-            SetAttackSprite();
-        }
-
-        // 检测鼠标左键松开
-        if (Input.GetMouseButtonUp(0))
-        {
-            SetIdleSprite();
-        }
-
         // 确保青蛙颜色正确显示
         if (frogRenderer != null && frogRenderer.color == Color.white)
         {
