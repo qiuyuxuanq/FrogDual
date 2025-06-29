@@ -104,10 +104,23 @@ public class AIController : MonoBehaviour
         {
             hasReacted = true;
             isMonitoring = false;
-            Debug.Log("🚨 AI反应了! 苍蝇逃脱失败!");
+            Debug.Log("🚨 AI反应了! 苍蝇在目标区域停留超过时间限制!");
 
-            // ✅ 明确说明是因为苍蝇逃脱
-            gameManager.OnFlyEscape(); // 使用专门的苍蝇逃脱方法
+            // ✅ 修改：AI只标记反应，不直接结束游戏
+            // AI Frog需要执行攻击动作后才结束游戏
+            Debug.Log("🤖 AI Controller标记反应完成，等待AI Frog执行攻击...");
+
+            // 通知AI Frog可以攻击了
+            AIFrog aiFrog = FindObjectOfType<AIFrog>();
+            if (aiFrog != null)
+            {
+                aiFrog.TriggerAttackAndEndGame();
+            }
+            else
+            {
+                // 如果没有AI Frog，直接结束游戏（兼容性）
+                gameManager.OnFlyEscape();
+            }
         }
     }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public enum GameState
@@ -21,11 +22,19 @@ public class GameManager : MonoBehaviour
     public AIController aiController;
     public BugSpawner bugSpawner;
     public TargetZone targetZone;
+    
+    [Header("倒计时显示 (使用Canvas Image)")]
+    public Image countdownImage1;    // 数字1的Image组件
+    public Image countdownImage2;    // 数字2的Image组件  
+    public Image countdownImage3;    // 数字3的Image组件
+    public float countdownDisplayTime = 1f; // 每个数字显示的时间
 
     public GameState currentState { get; private set; }
 
     void Start()
     {
+        // 确保所有倒计时Image初始状态为隐藏
+        HideAllCountdownImages();
         StartGame();
     }
 
@@ -37,11 +46,16 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameSequence()
     {
+        // 3、2、1倒计时显示
         for (int i = 3; i >= 1; i--)
         {
             Debug.Log($"⏱️ 倒数: {i}");
-            yield return new WaitForSeconds(1f);
+            ShowCountdownNumber(i);
+            yield return new WaitForSeconds(countdownDisplayTime);
         }
+        
+        // 隐藏倒计时数字
+        HideAllCountdownImages();
 
         Debug.Log("🟡 Ready状态开始!");
         currentState = GameState.Ready;
@@ -57,8 +71,6 @@ public class GameManager : MonoBehaviour
 
         // ✅ 修复：只在游戏开始时启动虫子生成
         bugSpawner.StartGameSpawning();
-
-        // ❌ 删除这行：bugSpawner.StopGameSpawning();
 
         aiController.StartReaction();
     }
@@ -240,5 +252,91 @@ public class GameManager : MonoBehaviour
         Debug.Log("🧹 所有虫子已清理完毕！");
 
     }
+    
+    /// <summary>
+    /// 显示倒计时数字 - 使用Canvas Image
+    /// </summary>
+    void ShowCountdownNumber(int number)
+    {
+        // 首先隐藏所有倒计时数字
+        HideAllCountdownImages();
+        
+        // 根据数字激活对应的Image
+        Image imageToShow = null;
+        switch (number)
+        {
+            case 1:
+                imageToShow = countdownImage1;
+                break;
+            case 2:
+                imageToShow = countdownImage2;
+                break;
+            case 3:
+                imageToShow = countdownImage3;
+                break;
+        }
+        
+        // 激活对应的Image
+        if (imageToShow != null)
+        {
+            imageToShow.gameObject.SetActive(true);
+            Debug.Log($"📱 显示倒计时数字: {number} (激活 {imageToShow.name})");
+        }
+        else
+        {
+            Debug.LogWarning($"⚠️ 没有找到数字 {number} 对应的Image组件! 请在Inspector中设置countdownImage{number}");
+        }
+    }
+    
+    /// <summary>
+    /// 隐藏所有倒计时数字
+    /// </summary>
+    void HideAllCountdownImages()
+    {
+        if (countdownImage1 != null) countdownImage1.gameObject.SetActive(false);
+        if (countdownImage2 != null) countdownImage2.gameObject.SetActive(false);
+        if (countdownImage3 != null) countdownImage3.gameObject.SetActive(false);
+        
+        Debug.Log("🙈 隐藏所有倒计时数字");
+    }
 
+    /// <summary>
+    /// 手动测试倒计时显示（右键菜单）
+    /// </summary>
+    [ContextMenu("测试显示倒计时3")]
+    public void TestShowCountdown3()
+    {
+        Debug.Log("🧪 手动测试：显示倒计时3");
+        ShowCountdownNumber(3);
+    }
+
+    /// <summary>
+    /// 手动测试倒计时显示（右键菜单）
+    /// </summary>
+    [ContextMenu("测试显示倒计时2")]
+    public void TestShowCountdown2()
+    {
+        Debug.Log("🧪 手动测试：显示倒计时2");
+        ShowCountdownNumber(2);
+    }
+
+    /// <summary>
+    /// 手动测试倒计时显示（右键菜单）
+    /// </summary>
+    [ContextMenu("测试显示倒计时1")]
+    public void TestShowCountdown1()
+    {
+        Debug.Log("🧪 手动测试：显示倒计时1");
+        ShowCountdownNumber(1);
+    }
+
+    /// <summary>
+    /// 手动隐藏倒计时（右键菜单）
+    /// </summary>
+    [ContextMenu("隐藏所有倒计时")]
+    public void TestHideAllCountdown()
+    {
+        Debug.Log("🧪 手动测试：隐藏所有倒计时");
+        HideAllCountdownImages();
+    }
 }
