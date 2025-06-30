@@ -41,8 +41,8 @@ public class BugSpawner : MonoBehaviour
     public Transform spawnCenter;
 
     [Header(" 生命周期")]
-    [Range(5f, 30f)]
-    public float bugLifetime = 15f;        // 虫子生存时间
+    [Range(5f, 100f)]
+    public float bugLifetime = 60f;        // 虫子生存时间
 
     [Header("调试")]
     public bool showDebugInfo = false;

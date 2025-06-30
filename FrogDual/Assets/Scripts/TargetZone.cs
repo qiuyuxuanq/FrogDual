@@ -3,7 +3,7 @@ using UnityEngine;
 public class TargetZone : MonoBehaviour
 {
     [Header("Target Zone Settings")]
-    public float radius = 10.0f;
+    public float radius = 13.0f;
     public bool showInGame = true;
 
     [Header("Visual Settings")]

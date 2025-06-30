@@ -3,36 +3,40 @@
   "WorkspaceRootPath": "D:\\FrogDual\\FrogDual\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|d:\\frogdual\\frogdual\\assets\\scripts\\bugspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bugspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|d:\\frogdual\\frogdual\\assets\\scripts\\targetzoneopportunitymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\targetzoneopportunitymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|D:\\FrogDual\\FrogDual\\assets\\scripts\\targetzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\targetzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|D:\\FrogDual\\FrogDual\\assets\\scripts\\aicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\aicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|D:\\FrogDual\\FrogDual\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|d:\\frogdual\\frogdual\\assets\\scripts\\playerfrog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerfrog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|D:\\FrogDual\\FrogDual\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|D:\\FrogDual\\FrogDual\\assets\\scripts\\bugspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bugspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|D:\\FrogDual\\FrogDual\\assets\\scripts\\bug.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bug.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|d:\\frogdual\\frogdual\\assets\\scripts\\autodestroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\autodestroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|D:\\FrogDual\\FrogDual\\assets\\scripts\\playerfrog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerfrog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|D:\\FrogDual\\FrogDual\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|D:\\FrogDual\\FrogDual\\assets\\scripts\\aicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\aicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|D:\\FrogDual\\FrogDual\\assets\\scripts\\autodestroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\autodestroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08B01119-22CD-08A1-8A88-E3076D6D3266}|Assembly-CSharp.csproj|D:\\FrogDual\\FrogDual\\assets\\scripts\\flymovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,33 +50,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PlayerFrog.cs",
-              "DocumentMoniker": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\PlayerFrog.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerFrog.cs",
-              "ToolTip": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\PlayerFrog.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerFrog.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAmwH8AAAALAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "TargetZoneOpportunityManager.cs",
+              "DocumentMoniker": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\TargetZoneOpportunityManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TargetZoneOpportunityManager.cs",
+              "ToolTip": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\TargetZoneOpportunityManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TargetZoneOpportunityManager.cs",
+              "ViewState": "AgIAAAACAAAAAAAAAAAcwBUCAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T00:17:57.656Z",
+              "WhenOpened": "2025-06-29T22:30:31.135Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "AIController.cs",
               "DocumentMoniker": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\AIController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AIController.cs",
               "ToolTip": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\AIController.cs",
               "RelativeToolTip": "Assets\\Scripts\\AIController.cs",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAANQBAAAAAAAAAAAuwOoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T21:31:38.771Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T21:31:38.771Z"
             },
             {
               "$type": "Document",
@@ -82,23 +85,21 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\TargetZone.cs",
               "ToolTip": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\TargetZone.cs",
               "RelativeToolTip": "Assets\\Scripts\\TargetZone.cs",
-              "ViewState": "AgIAAGcCAAAAAAAAAAAIwIACAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAmwFcAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T21:30:19.442Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T21:30:19.442Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "BugSpawner.cs",
               "DocumentMoniker": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\BugSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BugSpawner.cs",
               "ToolTip": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\BugSpawner.cs",
               "RelativeToolTip": "Assets\\Scripts\\BugSpawner.cs",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAmwDEAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAowCwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T21:29:15.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T21:29:15.385Z"
             },
             {
               "$type": "Document",
@@ -110,25 +111,47 @@
               "RelativeToolTip": "Assets\\Scripts\\Bug.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T21:29:01.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T21:29:01.15Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
               "ToolTip": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
-              "ViewState": "AgIAAPEAAAAAAAAAAAAAAPEAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAuwMwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T21:06:13.92Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T21:06:13.92Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
+              "ToolTip": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAwwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T21:30:43.519Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "PlayerFrog.cs",
+              "DocumentMoniker": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\PlayerFrog.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerFrog.cs",
+              "ToolTip": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\PlayerFrog.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerFrog.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAA7wK4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T00:17:57.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "AutoDestroy.cs",
               "DocumentMoniker": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\AutoDestroy.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AutoDestroy.cs",
@@ -136,24 +159,11 @@
               "RelativeToolTip": "Assets\\Scripts\\AutoDestroy.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwEoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T23:31:58.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-28T23:31:58.459Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PlayerController.cs",
-              "DocumentMoniker": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\PlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
-              "ToolTip": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\PlayerController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAmwEIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T21:30:43.519Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "FlyMovement.cs",
               "DocumentMoniker": "D:\\FrogDual\\FrogDual\\Assets\\Scripts\\FlyMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FlyMovement.cs",
